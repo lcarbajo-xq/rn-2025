@@ -1,6 +1,6 @@
 import { Text, View } from 'react-native'
 
-export function Profile() {
+export default function Tab() {
   return (
     <View>
       <Text>Profile</Text>

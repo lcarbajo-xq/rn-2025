@@ -1,6 +1,6 @@
 import { Text, View } from 'react-native'
 
-export function Cart() {
+export default function Tab() {
   return (
     <View>
       <Text>Cart</Text>

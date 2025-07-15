@@ -1,6 +1,6 @@
 import { Text, View } from 'react-native'
 
-export function Search() {
+export default function Tab() {
   return (
     <View>
       <Text>Search</Text>
