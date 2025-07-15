@@ -1,6 +1,7 @@
 import CustomButton from '@/components/button'
 import CustomInput from '@/components/input'
 import { createUser } from '@/lib/appwrite'
+import * as Sentry from '@sentry/react-native'
 import { Link, router } from 'expo-router'
 import { useState } from 'react'
 import { Alert, Text, View } from 'react-native'
@@ -28,6 +29,7 @@ export default function SignUp() {
       Alert.alert('Success', 'User signed up successfully')
       router.replace('/')
     } catch (error) {
+      Sentry.captureEvent(error as unknown as Event)
       if (error instanceof Error) Alert.alert('Error', error.message)
     } finally {
       setIsSubmitting(false)
