@@ -1,5 +1,6 @@
 import CustomButton from '@/components/button'
 import CustomInput from '@/components/input'
+import { createUser } from '@/lib/appwrite'
 import { Link, router } from 'expo-router'
 import { useState } from 'react'
 import { Alert, Text, View } from 'react-native'
@@ -12,12 +13,18 @@ export default function SignUp() {
     password: ''
   })
 
-  const handleSignUp = () => {
-    if (!formValues.name || !formValues.email || !formValues.password)
+  const handleSignUp = async () => {
+    const { name, email, password } = formValues
+    if (!name || !email || !password)
       return Alert.alert('Error', 'Please enter valid email and password')
 
     setIsSubmitting(true)
     try {
+      await createUser({
+        email,
+        password,
+        name
+      })
       Alert.alert('Success', 'User signed up successfully')
       router.replace('/')
     } catch (error) {
