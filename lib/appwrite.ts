@@ -13,7 +13,12 @@ export const appwriteConfig = {
   platform: 'com.louie-dev.rn2025',
   projectId: process.env.EXPO_PUBLIC_APPWRITE_PROJECT_ID,
   databaseId: '687523f10008e7a293e3',
-  userCollectionId: '6875241100027b6115c4'
+  bucketId: '6876b5080016fc7dc91a',
+  userCollectionId: '6875241100027b6115c4',
+  categoriesCollectionId: '68768776003a7f80deb1',
+  menuCollectionId: '687687eb0009f489543e',
+  customizationsId: '6876b3440026b49f2b9e',
+  menuCustomizationsId: '6876b409002c6e49f22e'
 }
 
 export const client = new Client()
