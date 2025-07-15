@@ -1,10 +1,16 @@
 import { SplashScreen, Stack } from 'expo-router'
 import './globals.css'
 
+import * as Sentry from '@sentry/react-native'
+
 import { useFonts } from 'expo-font'
 import { useEffect } from 'react'
 
-export default function RootLayout() {
+Sentry.init({
+  dsn: 'https://179bd08a624576e9c2dbadd244cbf6ed@o4509665880702976.ingest.de.sentry.io/4509671513456720'
+})
+
+export default Sentry.wrap(function RootLayout() {
   const [fontsLoaded, error] = useFonts({
     'QuickSand-Bold': require('../assets/fonts/Quicksand-Bold.ttf'),
     'QuickSand-Medium': require('../assets/fonts/Quicksand-Medium.ttf'),
@@ -20,4 +26,4 @@ export default function RootLayout() {
   }, [fontsLoaded, error])
 
   return <Stack screenOptions={{ headerShown: false }} />
-}
+})
