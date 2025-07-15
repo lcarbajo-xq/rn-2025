@@ -1,5 +1,6 @@
 import { Cart } from '@/components/cart'
 import { images, offers } from '@/constants'
+import useAuthStore from '@/store/auth.store'
 import cn from 'clsx'
 import {
   FlatList,
@@ -12,6 +13,9 @@ import {
 import { SafeAreaView } from 'react-native-safe-area-context'
 
 export default function Index() {
+  const { user } = useAuthStore()
+  console.log(JSON.stringify(user, null, 2))
+
   return (
     <SafeAreaView className='flex-1 bg-white'>
       <FlatList
