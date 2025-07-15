@@ -24,8 +24,10 @@ export default function SignIn() {
       Alert.alert('Success', 'User signed in successfully')
       router.replace('/')
     } catch (error) {
-      Sentry.captureEvent(error)
-      if (error instanceof Error) Alert.alert('Error', error.message)
+      if (error instanceof Error) {
+        Sentry.captureEvent(error)
+        Alert.alert('Error', error.message)
+      }
     } finally {
       setIsSubmitting(false)
     }
