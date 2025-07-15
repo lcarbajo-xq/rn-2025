@@ -1,9 +1,18 @@
-import { Text, View } from 'react-native'
+import seed from '@/lib/seed'
+import { Button, SafeAreaView, Text } from 'react-native'
 
 export default function Tab() {
   return (
-    <View>
+    <SafeAreaView>
       <Text>Search</Text>
-    </View>
+
+      <Button
+        title='Seed'
+        onPress={() =>
+          seed().catch((error) =>
+            console.error('Error seeding database', error)
+          )
+        }></Button>
+    </SafeAreaView>
   )
 }
