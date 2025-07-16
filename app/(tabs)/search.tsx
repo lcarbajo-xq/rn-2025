@@ -1,8 +1,10 @@
 import { Cart } from '@/components/cart'
+import { Filter } from '@/components/filter'
 import { MenuCard } from '@/components/menu-card'
+import { SearchBar } from '@/components/search-bar'
 import { getCategories, getMenu } from '@/lib/appwrite'
 import useAppwrite from '@/lib/useAppwrite'
-import { MenuItem } from '@/type'
+import { Category, MenuItem } from '@/type'
 import cn from 'clsx'
 import { useLocalSearchParams } from 'expo-router'
 import { useEffect } from 'react'
@@ -68,9 +70,9 @@ export default function Tab() {
               </View>
               <Cart />
             </View>
-            <Text>Text input</Text>
+            <SearchBar />
 
-            <Text>Filter</Text>
+            <Filter categories={categories as Category[]} />
           </View>
         )}
         ListEmptyComponent={() => !loading && <Text>No results found</Text>}
